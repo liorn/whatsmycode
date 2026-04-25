@@ -1,6 +1,6 @@
 {
   "name": "What's the Code",
-  "short_name": "Codes",
+  "short_name": "WhatsTheCode",
   "description": "Shows the entry code for the building you're next to.",
   "start_url": "./",
   "scope": "./",
