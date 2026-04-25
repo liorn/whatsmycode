@@ -2,7 +2,7 @@
 
 A tiny, mobile-first web app that shows the entry code of the building you're standing next to.
 
-Save an entry once — a name, a numeric code (with `#` / `*`), and an address — and the home screen automatically surfaces the nearest saved code based on your current GPS. Tap the code to copy it. Use the `‹` / `›` pager if the top match isn't the one you wanted.
+Save an entry once — a name, an entry code, an address, and an optional note — and the home screen automatically surfaces the nearest saved code based on your current GPS. Tap the code to copy it. Use the `‹` / `›` pager if the top match isn't the one you wanted.
 
 Live at: **https://whatsthecode.lior.dev**
 
@@ -11,6 +11,7 @@ Live at: **https://whatsthecode.lior.dev**
 - **Nearest-code home**: one big, tappable code for the closest saved address. Page through the rest in order of distance.
 - **Autocomplete address entry**: type an address, pick a match from OpenStreetMap Nominatim; lat/lng are stored so "nearest" works.
 - **"Use my current location"**: prefills the address form by reverse-geocoding your GPS.
+- **Optional note** per entry — handy for "floor 3, apt 2" or any other context to show alongside the code.
 - **Everything is local**: entries live in your browser's `localStorage`. No account, no server of our own.
 
 ## Stack
@@ -46,10 +47,11 @@ Then open `http://localhost:8080`.
 type Entry = {
   id: string;
   name: string;
-  code: string;       // verbatim, including # and *
+  code: string;       // stored verbatim
   address: string;    // Nominatim display_name
   lat: number;
   lng: number;
+  comment?: string;   // optional free-text note
   createdAt: number;  // epoch ms
 };
 ```
