@@ -610,11 +610,4 @@
   // ---------- Boot ----------
   window.addEventListener('hashchange', route);
   route();
-
-  // Service worker disabled during development so edits aren't masked by the cache.
-  // if ('serviceWorker' in navigator) {
-  //   window.addEventListener('load', () => {
-  //     navigator.serviceWorker.register('sw.js').catch(() => {});
-  //   });
-  // }
 })();
